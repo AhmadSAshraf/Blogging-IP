@@ -5,13 +5,6 @@ from app.models import *
 from  flask_migrate import Migrate, MigrateCommand
 
 # Creating app instance
-app = create_app('development')
-# app = create_app('test')
-# app = create_app('production')
-
-
-
-# Creating app instance
 app = create_app('test')
 app = create_app('development')
 app = create_app('production')
