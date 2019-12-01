@@ -1,0 +1,76 @@
+{% extends 'bootstrap/base.html' %}
+{% import 'macros.html' as macro %}
+{% block navbar %}
+{% include 'navbar.html'%}
+{% endblock %}
+
+{% block styles%} 
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
+
+  {% block content %}
+   <div class="container">
+            
+      <h1 style="color: black;text-align: center" class="display-4">Fungua roho yako!</h2>
+      <hr>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+              <div class="card card-image">
+                <img src="../static/photos/main.jpg" height="800" width="auto">
+      </div>
+          </div>
+          </div>
+          <br>
+       
+          <div class="jumbotron">
+      <h2 style="color:rgb(41, 40, 40) ;text-align: center" class="lead"> This is Pb!</h2>
+          
+          
+      <h4 style="color:rgb(41, 40, 40) ;text-align: center" class="lead">Share what matters to people that matter</h4>
+
+      <h4 style="text-align: center" ><a  href="/blogs/new/" style="color:black"><span class="glyphicon glyphicon-plus" aria-hidden="true" style="color: #217bcf"></span>   Add Your Post </a></h4>
+      </div>
+      
+      
+
+
+     
+          {% for post in posts %}
+             <div class="row">
+              <div class="col-md-12">
+                <div class="thumbnail text-center">
+               
+                  <p>
+                      <h2>{{post.title}}</h2>
+                    <small>{{post.description}}</small>
+
+                    <br><cite class="blockquote-footer"> Posted by {{post.user.username}}</cite>
+                  
+                  </p>
+                  
+                  <a href="{{url_for('main.new_comment',blog_id = post.id)}}" class="glyphicon glyphicon-comment" style="margin:10px;color: #1a636d"></a> 
+                
+                  <a href="{{url_for('main.upvote',blog_id = post.id)}}" class="glyphicon glyphicon-thumbs-up" style="margin:10px;color: #15ce4c"><i></i><span>{{post.upvotes.count()}}</span></a>
+          
+                  <a href="{{url_for('main.downvote',blog_id = post.id)}}" class= "glyphicon glyphicon-thumbs-down" style="margin:10px;color: #cf1f1f"><i></i><span>{{post.downvotes.count()}}</span></a> 
+          
+                </div>
+              
+          
+              </div>
+             </div>
+          
+             
+              
+          
+           {% endfor %}
+           <h2 style="color:black;text-align: center" class="lead">Daily Inspirational Quotes:</h2>
+           <div  class="card-body" style="color:rgb(25, 70, 20) ;text-align: center">
+            <p >{{ quotes.quote }}</p>
+            <cite>{{ quotes.author }}</cite>
+          </div>
+          
+  </body>
+  {% endblock %}
