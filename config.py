@@ -5,6 +5,7 @@ class Config:
     '''
     General configuration parent class
     '''
+    QUOTES_API = 'http://quotes.stormconsultancy.co.uk/random.json'
     SECRET_KEY = '45454667ffhgfgf'
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     # simple mde  configurations
