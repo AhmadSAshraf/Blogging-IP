@@ -10,7 +10,7 @@ https://hablog.herokuapp.com/
 
 
 # Description
-a personal blogging website where you can create and share your opinions and other users can read and comment on them. 
+This is a personal blogging website where you can create and share your opinions and other users can read and comment on them. 
 ## Link to Live Site 
 
 ## Installation Requirements
